@@ -2,11 +2,27 @@
   "name": "apollo-client-aws-ni",
   "version": "1.0.0",
   "description": "Provides a network interface for the official Apollo client in order to allow connection to graphql server protected behind a Amazon AWS API Gateway.",
-  "main": "index.js",
+  "main": "api-gw-connector.js",
   "scripts": {
     "prepublish": "tsc",
     "test": "echo 'To be configured...' && exit 0"
   },
+  "typings": "./api-gw-connector.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WalexMerapar/apollo-client-aws-ni.git"
+  },
+  "keywords": [
+    "graphql",
+    "client",
+    "apollo-client",
+    "apollo",
+    "AWS",
+    "API Gateway",
+    "API GW",
+    "aws signature v4",
+    "npm"
+  ],
   "author": {
     "name": "Alexandre Walzberg",
     "email": "alexandre.walzberg@merapar.com",
@@ -23,10 +39,5 @@
     "mocha": "^3.5.0",
     "ts-node": "^3.3.0",
     "typescript": "^2.4.2"
-  },
-  "typings": "./api-gw-connector.d.ts",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/WalexMerapar/apollo-client-aws-ni.git"
   }
 }
