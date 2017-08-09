@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "noImplicitAny": true,
+        "module": "commonjs",
+        "target": "ES5",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "sourceMap": true,
+        "declaration": true,
+        "lib": ["es6", "dom"]
+    },
+    "files": [
+        "api-gw-connector.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
