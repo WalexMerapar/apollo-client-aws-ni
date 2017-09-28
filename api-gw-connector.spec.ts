@@ -1,12 +1,15 @@
 import gql from 'graphql-tag';
-import { expect, assert } from 'chai';
-import 'mocha';
+
+import * as mocha from 'mocha';
+import * as chai from 'chai';
 
 
 import {
   AwsApiGwClient,
   AwsApiGwNetworkInterface,
 } from './api-gw-connector';
+
+const assert = chai.expect;
 
 describe('AWS API GW network interface', () => {
   const simpleQueryWithNoVars = gql`
@@ -42,9 +45,8 @@ describe('AWS API GW network interface', () => {
         clientSet = false;
       },
       graphqlPost(param, body, extra) {
-        assert.equal(
-          JSON.stringify(body),
-          '{"query":"query people {\\n  allPeople(first: 1) {\\n    people {\\n      name\\n    }\\n  }\\n}\\n","variables":{},"debugName":"People query"}',
+        assert(JSON.stringify(body)).to.equal(
+          '{"query":"query people {\\n  allPeople(first: 1) {\\n    people {\\n      name\\n    }\\n  }\\n}\\n","variables":{},"debugName":"People query"}'
         );
         return Promise.resolve({
           data: simpleResult,
@@ -62,8 +64,7 @@ describe('AWS API GW network interface', () => {
         clientSet = false;
       },
       graphqlPost(param, body, extra) {
-        assert.equal(
-          JSON.stringify(body),
+        assert(JSON.stringify(body)).to.equal(
           '{"query":"query people {\\n  allPeople(first: 1) {\\n    people {\\n      name\\n    }\\n  }\\n}\\n","variables":{},"debugName":"People query"}',
         );
         return Promise.resolve({
@@ -88,15 +89,16 @@ describe('AWS API GW network interface', () => {
     };
 
     it('should fetch remote data', () => {
-      return expect(networkInterface.query(simpleRequest)).to.equal(simpleResult);
+      networkInterface.query(simpleRequest).then( res => {
+        return assert(res).to.equal(simpleResult);
+      })
     });
 
     it('should throw an error when client AWS API GW not ready', () => {
       clientSet = false;
 
       return networkInterface.query(simpleRequest).catch(err => {
-        assert.equal(
-          err.message,
+        assert(err.message).to.equal(
           'AWS API GW client not ready/authenticated !',
         );
       });
@@ -106,12 +108,11 @@ describe('AWS API GW network interface', () => {
       clientSet = true;
 
       return networkInterfaceError.query(simpleRequest).catch(err => {
-        assert.isOk(err.response);
-        assert.equal(
-          err.message,
+        assert(err.response).to.be;
+        assert(err.message).to.equal(
           'Network request failed with status 401 - "Unauthorized"',
         );
-        assert.equal(clientSet, false);
+        assert(clientSet).to.equal(false);
       });
     });
   });

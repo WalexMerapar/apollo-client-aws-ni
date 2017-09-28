@@ -4,6 +4,9 @@ Provides a network interface for the official Apollo client in order to allow co
 ## Installation
 ```npm install apollo-client-aws-ni --save```
 
+## Test
+```npm test```
+
 ## Basic usage :
 ```
 import { ApolloClient } from 'apollo-client';

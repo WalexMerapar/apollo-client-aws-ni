@@ -10,7 +10,8 @@
         "lib": ["es6", "dom"]
     },
     "files": [
-        "api-gw-connector.ts"
+        "api-gw-connector.ts",
+        "api-gw-connector.spec.ts"
     ],
     "exclude": [
         "node_modules"
