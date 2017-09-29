@@ -1,4 +1,5 @@
-![Last build](https://api.travis-ci.org/merapar/apollo-client-aws-ni.svg?branch=master)
+[![Build Status](https://travis-ci.org/merapar/apollo-client-aws-ni.svg?branch=master)](https://travis-ci.org/merapar/apollo-client-aws-ni)
+[![npm version](https://badge.fury.io/js/apollo-client-aws-ni.svg)](https://badge.fury.io/js/apollo-client-aws-ni)
 
 # apollo-client-aws-ni
 Provides a network interface for the official Apollo client in order to allow connection to graphql server protected behind a Amazon AWS API Gateway.
