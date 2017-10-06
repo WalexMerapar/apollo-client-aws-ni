@@ -38,7 +38,8 @@ const client: ApolloClient = new ApolloClient({
 ```
 
 ## Related blog post
-Coming soon...
+https://merapar.com/2017/10/06/sending-graphql-requests-aws-api-gateway-using-apollo-client/
 
 ## Related links
 https://github.com/apollographql/apollo-client
+https://www.npmjs.com/package/apollo-client-aws-ni
